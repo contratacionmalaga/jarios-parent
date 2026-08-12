@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -37,7 +37,10 @@
         <assertj.version>3.27.7</assertj.version>
         <hibernate.version>7.3.0.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
-        <jackson.version>2.19.4</jackson.version>
+        <jackson.version>2.22.1</jackson.version>
+        <jackson.annotations.version>2.22</jackson.annotations.version>
+        <jakarta.xml.bind.version>4.0.4</jakarta.xml.bind.version>
+        <jaxb.runtime.version>4.0.9</jaxb.runtime.version>
         <jakarta.mail.version>2.0.2</jakarta.mail.version>
         <jakarta.persistence.version>3.2.0</jakarta.persistence.version>
         <jsoup.version>1.23.1</jsoup.version>
@@ -55,7 +58,7 @@
         <version-helper.version>6.1.1</version-helper.version>
 
         <build.helper.maven.plugin.version>3.6.1</build.helper.maven.plugin.version>
-        <dependency.check.maven.version>12.2.2</dependency.check.maven.version>
+        <dependency.check.maven.version>13.0.0</dependency.check.maven.version>
         <findsecbugs.plugin.version>1.12.0</findsecbugs.plugin.version>
         <maven.antrun.plugin.version>3.2.0</maven.antrun.plugin.version>
         <maven.assembly.plugin.version>3.8.0</maven.assembly.plugin.version>
@@ -80,13 +83,15 @@
     <dependencyManagement>
         <dependencies>
             <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><version>${logback.version}</version></dependency>
-            <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId><version>${jackson.version}</version></dependency>
+            <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId><version>${jackson.annotations.version}</version></dependency>
             <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-core</artifactId><version>${jackson.version}</version></dependency>
             <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version></dependency>
             <dependency><groupId>com.fasterxml.jackson.datatype</groupId><artifactId>jackson-datatype-jsr310</artifactId><version>${jackson.version}</version></dependency>
             <dependency><groupId>com.sun.mail</groupId><artifactId>jakarta.mail</artifactId><version>${jakarta.mail.version}</version></dependency>
             <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>${hikaricp.version}</version></dependency>
             <dependency><groupId>jakarta.persistence</groupId><artifactId>jakarta.persistence-api</artifactId><version>${jakarta.persistence.version}</version></dependency>
+            <dependency><groupId>jakarta.xml.bind</groupId><artifactId>jakarta.xml.bind-api</artifactId><version>${jakarta.xml.bind.version}</version></dependency>
+            <dependency><groupId>org.glassfish.jaxb</groupId><artifactId>jaxb-runtime</artifactId><version>${jaxb.runtime.version}</version></dependency>
             <dependency><groupId>local.jarios</groupId><artifactId>email-helper</artifactId><version>${email-helper.version}</version></dependency>
             <dependency><groupId>local.jarios</groupId><artifactId>encrypt-helper</artifactId><version>${encrypt-helper.version}</version></dependency>
             <dependency><groupId>local.jarios</groupId><artifactId>properties-helper</artifactId><version>${property-helper.version}</version></dependency>
