@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -49,10 +49,10 @@
         <reflections.version>0.10.2</reflections.version>
         <slf4j.version>2.0.17</slf4j.version>
 
-        <encrypt-helper.version>7.0.1</encrypt-helper.version>
-        <email-helper.version>6.1.0</email-helper.version>
-        <property-helper.version>6.0.0</property-helper.version>
-        <version-helper.version>6.1.0</version-helper.version>
+        <encrypt-helper.version>7.0.2</encrypt-helper.version>
+        <email-helper.version>6.1.1</email-helper.version>
+        <property-helper.version>6.0.1</property-helper.version>
+        <version-helper.version>6.1.1</version-helper.version>
 
         <build.helper.maven.plugin.version>3.6.1</build.helper.maven.plugin.version>
         <dependency.check.maven.version>12.2.2</dependency.check.maven.version>
