@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>local.jarios</groupId>
+    <artifactId>jarios-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>jarios-parent</name>
+    <description>Configuración Maven común para proyectos local.jarios</description>
+    <scm>
+        <connection>scm:git:https://github.com/contratacionmalaga/jarios-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:contratacionmalaga/jarios-parent.git</developerConnection>
+        <url>https://github.com/contratacionmalaga/jarios-parent</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github-releases</id>
+            <url>https://maven.pkg.github.com/contratacionmalaga/jarios-parent</url>
+        </repository>
+        <snapshotRepository>
+            <id>github-snapshots</id>
+            <url>https://maven.pkg.github.com/contratacionmalaga/jarios-parent</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>21</maven.compiler.release>
+        <maven.minimum.version>3.9.16</maven.minimum.version>
+
+        <assertj.version>3.27.7</assertj.version>
+        <hibernate.version>7.3.0.Final</hibernate.version>
+        <hikaricp.version>7.1.0</hikaricp.version>
+        <jackson.version>2.22.1</jackson.version>
+        <jakarta.mail.version>2.0.2</jakarta.mail.version>
+        <jakarta.persistence.version>3.2.0</jakarta.persistence.version>
+        <jsoup.version>1.23.1</jsoup.version>
+        <junit.version>6.1.3</junit.version>
+        <logback.version>1.6.2</logback.version>
+        <lombok.version>1.18.46</lombok.version>
+        <mariadb.version>3.5.10</mariadb.version>
+        <poi.version>5.5.1</poi.version>
+        <reflections.version>0.10.2</reflections.version>
+        <slf4j.version>2.0.17</slf4j.version>
+
+        <encrypt-helper.version>7.0.1</encrypt-helper.version>
+        <email-helper.version>6.1.0</email-helper.version>
+        <property-helper.version>6.0.0</property-helper.version>
+        <version-helper.version>6.1.0</version-helper.version>
+
+        <build.helper.maven.plugin.version>3.6.1</build.helper.maven.plugin.version>
+        <dependency.check.maven.version>12.2.2</dependency.check.maven.version>
+        <findsecbugs.plugin.version>1.12.0</findsecbugs.plugin.version>
+        <maven.antrun.plugin.version>3.2.0</maven.antrun.plugin.version>
+        <maven.assembly.plugin.version>3.8.0</maven.assembly.plugin.version>
+        <maven.checkstyle.plugin.version>3.6.0</maven.checkstyle.plugin.version>
+        <maven.clean.plugin.version>3.5.0</maven.clean.plugin.version>
+        <maven.compiler.plugin.version>3.15.0</maven.compiler.plugin.version>
+        <maven.dependency.plugin.version>3.11.0</maven.dependency.plugin.version>
+        <maven.enforcer.plugin.version>3.6.3</maven.enforcer.plugin.version>
+        <maven.failsafe.plugin.version>3.5.4</maven.failsafe.plugin.version>
+        <maven.jar.plugin.version>3.5.1</maven.jar.plugin.version>
+        <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
+        <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
+        <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
+        <maven.site.plugin.version>4.0.0-M16</maven.site.plugin.version>
+        <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
+        <maven.surefire.plugin.version>3.5.5</maven.surefire.plugin.version>
+        <spotbugs.maven.plugin.version>4.10.3.0</spotbugs.maven.plugin.version>
+        <spotless.maven.plugin.version>3.4.0</spotless.maven.plugin.version>
+        <versions.maven.plugin.version>2.21.0</versions.maven.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><version>${logback.version}</version></dependency>
+            <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId><version>${jackson.version}</version></dependency>
+            <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-core</artifactId><version>${jackson.version}</version></dependency>
+            <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version></dependency>
+            <dependency><groupId>com.fasterxml.jackson.datatype</groupId><artifactId>jackson-datatype-jsr310</artifactId><version>${jackson.version}</version></dependency>
+            <dependency><groupId>com.sun.mail</groupId><artifactId>jakarta.mail</artifactId><version>${jakarta.mail.version}</version></dependency>
+            <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>${hikaricp.version}</version></dependency>
+            <dependency><groupId>jakarta.persistence</groupId><artifactId>jakarta.persistence-api</artifactId><version>${jakarta.persistence.version}</version></dependency>
+            <dependency><groupId>local.jarios</groupId><artifactId>email-helper</artifactId><version>${email-helper.version}</version></dependency>
+            <dependency><groupId>local.jarios</groupId><artifactId>encrypt-helper</artifactId><version>${encrypt-helper.version}</version></dependency>
+            <dependency><groupId>local.jarios</groupId><artifactId>properties-helper</artifactId><version>${property-helper.version}</version></dependency>
+            <dependency><groupId>local.jarios</groupId><artifactId>version-helper</artifactId><version>${version-helper.version}</version></dependency>
+            <dependency><groupId>org.assertj</groupId><artifactId>assertj-core</artifactId><version>${assertj.version}</version></dependency>
+            <dependency><groupId>org.hibernate.orm</groupId><artifactId>hibernate-core</artifactId><version>${hibernate.version}</version></dependency>
+            <dependency><groupId>org.hibernate.orm</groupId><artifactId>hibernate-hikaricp</artifactId><version>${hibernate.version}</version></dependency>
+            <dependency><groupId>org.jsoup</groupId><artifactId>jsoup</artifactId><version>${jsoup.version}</version></dependency>
+            <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version></dependency>
+            <dependency><groupId>org.mariadb.jdbc</groupId><artifactId>mariadb-java-client</artifactId><version>${mariadb.version}</version></dependency>
+            <dependency><groupId>org.apache.poi</groupId><artifactId>poi</artifactId><version>${poi.version}</version></dependency>
+            <dependency><groupId>org.apache.poi</groupId><artifactId>poi-ooxml</artifactId><version>${poi.version}</version></dependency>
+            <dependency><groupId>org.projectlombok</groupId><artifactId>lombok</artifactId><version>${lombok.version}</version></dependency>
+            <dependency><groupId>org.reflections</groupId><artifactId>reflections</artifactId><version>${reflections.version}</version></dependency>
+            <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>${slf4j.version}</version></dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>${maven.antrun.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-assembly-plugin</artifactId><version>${maven.assembly.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-checkstyle-plugin</artifactId><version>${maven.checkstyle.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-clean-plugin</artifactId><version>${maven.clean.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>${maven.compiler.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId><version>${maven.dependency.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId><version>${maven.enforcer.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-failsafe-plugin</artifactId><version>${maven.failsafe.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>${maven.jar.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId><version>${maven.javadoc.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-release-plugin</artifactId><version>${maven.release.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>${maven.shade.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-site-plugin</artifactId><version>${maven.site.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-source-plugin</artifactId><version>${maven.source.plugin.version}</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>${maven.surefire.plugin.version}</version></plugin>
+                <plugin><groupId>com.diffplug.spotless</groupId><artifactId>spotless-maven-plugin</artifactId><version>${spotless.maven.plugin.version}</version></plugin>
+                <plugin><groupId>com.github.spotbugs</groupId><artifactId>spotbugs-maven-plugin</artifactId><version>${spotbugs.maven.plugin.version}</version></plugin>
+                <plugin><groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId><version>${build.helper.maven.plugin.version}</version></plugin>
+                <plugin><groupId>org.codehaus.mojo</groupId><artifactId>versions-maven-plugin</artifactId><version>${versions.maven.plugin.version}</version></plugin>
+                <plugin><groupId>org.owasp</groupId><artifactId>dependency-check-maven</artifactId><version>${dependency.check.maven.version}</version></plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
