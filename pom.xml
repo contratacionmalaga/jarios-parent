@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -37,7 +37,7 @@
         <assertj.version>3.27.7</assertj.version>
         <hibernate.version>7.3.0.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
-        <jackson.version>2.22.1</jackson.version>
+        <jackson.version>2.19.4</jackson.version>
         <jakarta.mail.version>2.0.2</jakarta.mail.version>
         <jakarta.persistence.version>3.2.0</jakarta.persistence.version>
         <jsoup.version>1.23.1</jsoup.version>
