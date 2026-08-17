@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  packages: read
 
 jobs:
   dependency-check:
@@ -31,6 +32,9 @@ jobs:
           restore-keys: |
             dependency-check-${{ runner.os }}-
             maven-${{ runner.os }}-
+
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
 
       - name: Run OWASP Dependency Check
         env:

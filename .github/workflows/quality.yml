@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  packages: read
 
 jobs:
   quality:
@@ -33,6 +34,9 @@ jobs:
           restore-keys: |
             maven-quality-${{ runner.os }}-
             maven-${{ runner.os }}-
+
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
 
       - name: Quality checks
         run: ./mvnw -B -ntp -Pquality verify
