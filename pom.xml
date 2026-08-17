@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -69,10 +69,10 @@
         <jacoco.plugin.version>0.8.15</jacoco.plugin.version>
         <dependency.check.data.directory>${user.home}/.m2/dependency-check-data</dependency.check.data.directory>
 
-        <encrypt-helper.version>7.0.2</encrypt-helper.version>
-        <email-helper.version>6.1.1</email-helper.version>
-        <property-helper.version>6.0.2</property-helper.version>
-        <version-helper.version>6.1.1</version-helper.version>
+        <encrypt-helper.version>7.0.3</encrypt-helper.version>
+        <email-helper.version>6.1.2</email-helper.version>
+        <property-helper.version>6.0.3</property-helper.version>
+        <version-helper.version>6.1.2</version-helper.version>
 
         <build.helper.maven.plugin.version>3.6.1</build.helper.maven.plugin.version>
         <dependency.check.maven.version>13.0.0</dependency.check.maven.version>
