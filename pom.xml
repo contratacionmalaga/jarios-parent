@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -35,22 +35,39 @@
         <maven.minimum.version>3.9.16</maven.minimum.version>
 
         <assertj.version>3.27.7</assertj.version>
-        <hibernate.version>7.3.0.Final</hibernate.version>
+        <hibernate.version>7.4.5.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
-        <jackson.version>2.22.1</jackson.version>
+        <jackson.version>2.22.2</jackson.version>
         <jackson.annotations.version>2.22</jackson.annotations.version>
-        <jakarta.xml.bind.version>4.0.4</jakarta.xml.bind.version>
+        <jakarta.xml.bind.version>4.0.5</jakarta.xml.bind.version>
         <jaxb.runtime.version>4.0.9</jaxb.runtime.version>
         <jakarta.mail.version>2.0.2</jakarta.mail.version>
         <jakarta.persistence.version>3.2.0</jakarta.persistence.version>
         <jsoup.version>1.23.1</jsoup.version>
         <junit.version>6.1.3</junit.version>
-        <logback.version>1.6.2</logback.version>
+        <logback.version>1.6.3</logback.version>
         <lombok.version>1.18.46</lombok.version>
         <mariadb.version>3.5.10</mariadb.version>
         <poi.version>5.5.1</poi.version>
         <reflections.version>0.10.2</reflections.version>
-        <slf4j.version>2.0.17</slf4j.version>
+        <slf4j.version>2.0.18</slf4j.version>
+        <log4j.version>2.26.1</log4j.version>
+        <gson.version>2.14.0</gson.version>
+        <java-uuid-generator.version>5.2.0</java-uuid-generator.version>
+        <uuid.version>5.1.0</uuid.version>
+        <postgresql.version>42.7.13</postgresql.version>
+        <h2.version>2.4.240</h2.version>
+        <commons.text.version>1.15.0</commons.text.version>
+        <commons.collections.version>4.6.0</commons.collections.version>
+        <commons.codec.version>1.22.1</commons.codec.version>
+        <testcontainers.version>2.0.5</testcontainers.version>
+        <testcontainers.mariadb.version>1.21.4</testcontainers.mariadb.version>
+        <jasypt.version>1.9.3</jasypt.version>
+        <jakarta.validation.version>3.1.1</jakarta.validation.version>
+        <jakarta.annotation.version>3.0.0</jakarta.annotation.version>
+        <checkstyle.version>13.11.0</checkstyle.version>
+        <jacoco.plugin.version>0.8.15</jacoco.plugin.version>
+        <dependency.check.data.directory>${user.home}/.m2/dependency-check-data</dependency.check.data.directory>
 
         <encrypt-helper.version>7.0.2</encrypt-helper.version>
         <email-helper.version>6.1.1</email-helper.version>
@@ -76,7 +93,7 @@
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
         <maven.surefire.plugin.version>3.5.5</maven.surefire.plugin.version>
         <spotbugs.maven.plugin.version>4.10.3.0</spotbugs.maven.plugin.version>
-        <spotless.maven.plugin.version>3.4.0</spotless.maven.plugin.version>
+        <spotless.maven.plugin.version>3.10.0</spotless.maven.plugin.version>
         <versions.maven.plugin.version>2.21.0</versions.maven.plugin.version>
     </properties>
 
@@ -100,6 +117,21 @@
             <dependency><groupId>org.hibernate.orm</groupId><artifactId>hibernate-core</artifactId><version>${hibernate.version}</version></dependency>
             <dependency><groupId>org.hibernate.orm</groupId><artifactId>hibernate-hikaricp</artifactId><version>${hibernate.version}</version></dependency>
             <dependency><groupId>org.jsoup</groupId><artifactId>jsoup</artifactId><version>${jsoup.version}</version></dependency>
+            <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-core</artifactId><version>${log4j.version}</version></dependency>
+            <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-to-slf4j</artifactId><version>${log4j.version}</version></dependency>
+            <dependency><groupId>com.google.code.gson</groupId><artifactId>gson</artifactId><version>${gson.version}</version></dependency>
+            <dependency><groupId>com.fasterxml.uuid</groupId><artifactId>java-uuid-generator</artifactId><version>${java-uuid-generator.version}</version></dependency>
+            <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>${postgresql.version}</version></dependency>
+            <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><version>${h2.version}</version></dependency>
+            <dependency><groupId>org.apache.commons</groupId><artifactId>commons-text</artifactId><version>${commons.text.version}</version></dependency>
+            <dependency><groupId>org.apache.commons</groupId><artifactId>commons-collections4</artifactId><version>${commons.collections.version}</version></dependency>
+            <dependency><groupId>commons-codec</groupId><artifactId>commons-codec</artifactId><version>${commons.codec.version}</version></dependency>
+            <dependency><groupId>org.testcontainers</groupId><artifactId>testcontainers</artifactId><version>${testcontainers.version}</version></dependency>
+            <dependency><groupId>org.testcontainers</groupId><artifactId>mariadb</artifactId><version>${testcontainers.mariadb.version}</version></dependency>
+            <dependency><groupId>org.testcontainers</groupId><artifactId>testcontainers-mariadb</artifactId><version>${testcontainers.version}</version></dependency>
+            <dependency><groupId>org.jasypt</groupId><artifactId>jasypt</artifactId><version>${jasypt.version}</version></dependency>
+            <dependency><groupId>jakarta.validation</groupId><artifactId>jakarta.validation-api</artifactId><version>${jakarta.validation.version}</version></dependency>
+            <dependency><groupId>jakarta.annotation</groupId><artifactId>jakarta.annotation-api</artifactId><version>${jakarta.annotation.version}</version></dependency>
             <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version></dependency>
             <dependency><groupId>org.mariadb.jdbc</groupId><artifactId>mariadb-java-client</artifactId><version>${mariadb.version}</version></dependency>
             <dependency><groupId>org.apache.poi</groupId><artifactId>poi</artifactId><version>${poi.version}</version></dependency>
@@ -115,26 +147,144 @@
             <plugins>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>${maven.antrun.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-assembly-plugin</artifactId><version>${maven.assembly.plugin.version}</version></plugin>
-                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-checkstyle-plugin</artifactId><version>${maven.checkstyle.plugin.version}</version></plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven.checkstyle.plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${checkstyle.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <consoleOutput>true</consoleOutput>
+                    </configuration>
+                </plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-clean-plugin</artifactId><version>${maven.clean.plugin.version}</version></plugin>
-                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>${maven.compiler.plugin.version}</version></plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
+                    </configuration>
+                </plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId><version>${maven.dependency.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId><version>${maven.enforcer.plugin.version}</version></plugin>
-                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-failsafe-plugin</artifactId><version>${maven.failsafe.plugin.version}</version></plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven.failsafe.plugin.version}</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath>
+                    </configuration>
+                </plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>${maven.jar.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId><version>${maven.javadoc.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-release-plugin</artifactId><version>${maven.release.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>${maven.shade.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-site-plugin</artifactId><version>${maven.site.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-source-plugin</artifactId><version>${maven.source.plugin.version}</version></plugin>
-                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>${maven.surefire.plugin.version}</version></plugin>
-                <plugin><groupId>com.diffplug.spotless</groupId><artifactId>spotless-maven-plugin</artifactId><version>${spotless.maven.plugin.version}</version></plugin>
-                <plugin><groupId>com.github.spotbugs</groupId><artifactId>spotbugs-maven-plugin</artifactId><version>${spotbugs.maven.plugin.version}</version></plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>${spotless.maven.plugin.version}</version>
+                    <configuration>
+                        <java>
+                            <googleJavaFormat>
+                                <version>1.33.0</version>
+                            </googleJavaFormat>
+                            <removeUnusedImports/>
+                        </java>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${spotbugs.maven.plugin.version}</version>
+                    <configuration>
+                        <effort>Max</effort>
+                        <threshold>Low</threshold>
+                    </configuration>
+                </plugin>
                 <plugin><groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId><version>${build.helper.maven.plugin.version}</version></plugin>
                 <plugin><groupId>org.codehaus.mojo</groupId><artifactId>versions-maven-plugin</artifactId><version>${versions.maven.plugin.version}</version></plugin>
-                <plugin><groupId>org.owasp</groupId><artifactId>dependency-check-maven</artifactId><version>${dependency.check.maven.version}</version></plugin>
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>${dependency.check.maven.version}</version>
+                    <configuration>
+                        <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+                        <dataDirectory>${dependency.check.data.directory}</dataDirectory>
+                        <failBuildOnCVSS>8.0</failBuildOnCVSS>
+                        <ossIndexAnalyzerEnabled>false</ossIndexAnalyzerEnabled>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco.plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
+    <profiles>
+        <profile>
+            <id>quality</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>spotless-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>checkstyle-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>spotbugs-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
 
