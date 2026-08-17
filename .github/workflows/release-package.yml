@@ -1,10 +1,15 @@
 name: Release Package
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag to publish, for example v1.2.3
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -14,8 +19,29 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve release tag
+        id: release
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            TAG="${{ inputs.release_tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+
+          VERSION="${TAG#v}"
+          if [[ -z "$TAG" || -z "$VERSION" || "$TAG" == "$VERSION" ]]; then
+            echo "Release tag must use v<version> format, for example v1.2.3" >&2
+            exit 1
+          fi
+
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
         uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ steps.release.outputs.tag }}
 
       - name: Set up Java
         uses: actions/setup-java@v5.7.0
@@ -37,6 +63,22 @@ jobs:
             maven-release-${{ runner.os }}-
             maven-${{ runner.os }}-
 
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
+
+      - name: Verify release version
+        shell: bash
+        run: |
+          PROJECT_VERSION="$(sed -n '0,/<packaging>/s:.*<version>\(.*\)</version>.*:\1:p' pom.xml | tail -n 1)"
+          if [[ -z "$PROJECT_VERSION" ]]; then
+            echo "Could not resolve project version from pom.xml" >&2
+            exit 1
+          fi
+          if [[ "$PROJECT_VERSION" != "${{ steps.release.outputs.version }}" ]]; then
+            echo "Release tag ${{ steps.release.outputs.tag }} does not match pom.xml version $PROJECT_VERSION" >&2
+            exit 1
+          fi
+
       - name: Build
         run: ./mvnw -B -ntp clean verify
 
@@ -49,7 +91,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || \
-          gh release create "$GITHUB_REF_NAME" \
-            --title "jarios-parent ${GITHUB_REF_NAME#v}" \
-            --notes "Release jarios-parent ${GITHUB_REF_NAME#v}."
+          gh release view "${{ steps.release.outputs.tag }}" >/dev/null 2>&1 || \
+          gh release create "${{ steps.release.outputs.tag }}" \
+            --title "jarios-parent ${{ steps.release.outputs.version }}" \
+            --notes "Release jarios-parent ${{ steps.release.outputs.version }}."
+
+      - name: Upload release artifacts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          if compgen -G "target/*.jar" > /dev/null; then
+            gh release upload "${{ steps.release.outputs.tag }}" target/*.jar --clobber
+          else
+            echo "No JAR artifacts found to upload."
+          fi
