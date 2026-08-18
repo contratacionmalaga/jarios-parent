@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.12</version>
+    <version>1.0.13</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -66,14 +66,22 @@
         <jakarta.validation.version>3.1.1</jakarta.validation.version>
         <jakarta.annotation.version>3.0.0</jakarta.annotation.version>
         <checkstyle.version>13.11.0</checkstyle.version>
+        <checkstyle.config.location>google_checks.xml</checkstyle.config.location>
+        <checkstyle.console.output>true</checkstyle.console.output>
+        <checkstyle.fails.on.error>true</checkstyle.fails.on.error>
+        <checkstyle.max.violations>0</checkstyle.max.violations>
         <jacoco.plugin.version>0.8.15</jacoco.plugin.version>
+        <google.java.format.version>1.33.0</google.java.format.version>
+        <javadoc.fail.on.error>true</javadoc.fail.on.error>
+        <javadoc.doclint>none</javadoc.doclint>
+        <javadoc.quiet>true</javadoc.quiet>
         <dependency.check.data.directory>${user.home}/.m2/dependency-check-data</dependency.check.data.directory>
         <dependency.check.fail.build.on.cvss>8.0</dependency.check.fail.build.on.cvss>
 
-        <encrypt-helper.version>7.0.4</encrypt-helper.version>
-        <email-helper.version>6.1.3</email-helper.version>
-        <property-helper.version>6.0.4</property-helper.version>
-        <version-helper.version>6.1.3</version-helper.version>
+        <encrypt-helper.version>7.0.5</encrypt-helper.version>
+        <email-helper.version>6.1.4</email-helper.version>
+        <property-helper.version>6.0.5</property-helper.version>
+        <version-helper.version>6.1.4</version-helper.version>
 
         <build.helper.maven.plugin.version>3.6.1</build.helper.maven.plugin.version>
         <dependency.check.maven.version>13.0.0</dependency.check.maven.version>
@@ -160,8 +168,10 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <configLocation>google_checks.xml</configLocation>
-                        <consoleOutput>true</consoleOutput>
+                        <configLocation>${checkstyle.config.location}</configLocation>
+                        <consoleOutput>${checkstyle.console.output}</consoleOutput>
+                        <failsOnError>${checkstyle.fails.on.error}</failsOnError>
+                        <maxAllowedViolations>${checkstyle.max.violations}</maxAllowedViolations>
                     </configuration>
                 </plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-clean-plugin</artifactId><version>${maven.clean.plugin.version}</version></plugin>
@@ -184,7 +194,19 @@
                     </configuration>
                 </plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>${maven.jar.plugin.version}</version></plugin>
-                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId><version>${maven.javadoc.plugin.version}</version></plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven.javadoc.plugin.version}</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
+                        <show>private</show>
+                        <nohelp>true</nohelp>
+                        <failOnError>${javadoc.fail.on.error}</failOnError>
+                        <doclint>${javadoc.doclint}</doclint>
+                        <quiet>${javadoc.quiet}</quiet>
+                    </configuration>
+                </plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-release-plugin</artifactId><version>${maven.release.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>${maven.shade.plugin.version}</version></plugin>
                 <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-site-plugin</artifactId><version>${maven.site.plugin.version}</version></plugin>
@@ -204,7 +226,7 @@
                     <configuration>
                         <java>
                             <googleJavaFormat>
-                                <version>1.33.0</version>
+                                <version>${google.java.format.version}</version>
                             </googleJavaFormat>
                             <removeUnusedImports/>
                         </java>
@@ -318,3 +340,5 @@
         </profile>
     </profiles>
 </project>
+
+

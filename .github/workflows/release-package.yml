@@ -63,8 +63,17 @@ jobs:
             maven-release-${{ runner.os }}-
             maven-${{ runner.os }}-
 
+      - name: Set up private Maven packages
+        uses: ./.github/actions/setup-maven-private
+        with:
+          package-token: ${{ secrets.PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
+          publish-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Make Maven Wrapper executable
         run: chmod +x ./mvnw
+
+      - name: Set up project artifacts
+        uses: ./.github/actions/setup-project-artifacts
 
       - name: Verify release version
         shell: bash
@@ -93,8 +102,8 @@ jobs:
         run: |
           gh release view "${{ steps.release.outputs.tag }}" >/dev/null 2>&1 || \
           gh release create "${{ steps.release.outputs.tag }}" \
-            --title "jarios-parent ${{ steps.release.outputs.version }}" \
-            --notes "Release jarios-parent ${{ steps.release.outputs.version }}."
+            --title "${{ github.event.repository.name }} ${{ steps.release.outputs.version }}" \
+            --notes "Release ${{ github.event.repository.name }} ${{ steps.release.outputs.version }}."
 
       - name: Upload release artifacts
         env:
