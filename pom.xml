@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -70,10 +70,10 @@
         <dependency.check.data.directory>${user.home}/.m2/dependency-check-data</dependency.check.data.directory>
         <dependency.check.fail.build.on.cvss>8.0</dependency.check.fail.build.on.cvss>
 
-        <encrypt-helper.version>7.0.3</encrypt-helper.version>
-        <email-helper.version>6.1.2</email-helper.version>
-        <property-helper.version>6.0.3</property-helper.version>
-        <version-helper.version>6.1.2</version-helper.version>
+        <encrypt-helper.version>7.0.4</encrypt-helper.version>
+        <email-helper.version>6.1.3</email-helper.version>
+        <property-helper.version>6.0.4</property-helper.version>
+        <version-helper.version>6.1.3</version-helper.version>
 
         <build.helper.maven.plugin.version>3.6.1</build.helper.maven.plugin.version>
         <dependency.check.maven.version>13.0.0</dependency.check.maven.version>
