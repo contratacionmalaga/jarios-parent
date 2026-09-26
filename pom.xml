@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.13</version>
+    <version>1.0.14</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -35,22 +35,22 @@
         <maven.minimum.version>3.9.16</maven.minimum.version>
 
         <assertj.version>3.27.7</assertj.version>
-        <hibernate.version>7.4.5.Final</hibernate.version>
+        <hibernate.version>7.4.10.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
-        <jackson.version>2.22.2</jackson.version>
+        <jackson.version>2.22.3</jackson.version>
         <jackson.annotations.version>2.22</jackson.annotations.version>
         <jakarta.xml.bind.version>4.0.5</jakarta.xml.bind.version>
         <jaxb.runtime.version>4.0.9</jaxb.runtime.version>
         <jakarta.mail.version>2.0.2</jakarta.mail.version>
         <jakarta.persistence.version>3.2.0</jakarta.persistence.version>
-        <jsoup.version>1.23.1</jsoup.version>
+        <jsoup.version>1.23.2</jsoup.version>
         <junit.version>6.1.3</junit.version>
-        <logback.version>1.6.3</logback.version>
-        <lombok.version>1.18.46</lombok.version>
+        <logback.version>1.6.4</logback.version>
+        <lombok.version>1.18.48</lombok.version>
         <mariadb.version>3.5.10</mariadb.version>
         <poi.version>5.5.1</poi.version>
         <reflections.version>0.10.2</reflections.version>
-        <slf4j.version>2.0.18</slf4j.version>
+        <slf4j.version>2.0.20</slf4j.version>
         <log4j.version>2.26.1</log4j.version>
         <gson.version>2.14.0</gson.version>
         <java-uuid-generator.version>5.2.0</java-uuid-generator.version>
