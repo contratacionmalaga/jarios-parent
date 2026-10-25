@@ -2,26 +2,28 @@
 
 Configuración Maven centralizada para los proyectos Java de `local.jarios`: gestión de dependencias, herramientas de construcción, controles de calidad y publicación de artefactos.
 
-**Artefacto Maven:** `local.jarios:jarios-parent:1.0.15`
+**Artefacto Maven:** `local.jarios:jarios-parent:1.0.16`
 **Repositorio:** [contratacionmalaga/jarios-parent](https://github.com/contratacionmalaga/jarios-parent)
 
 ## Información de la versión
 
 | Característica | Configuración |
 |---|---|
-| Versión del parent | **1.0.15** |
+| Versión del parent | **1.0.16** |
 | Tipo de artefacto | `pom` |
 | Java de referencia y compilación | **21** |
-| Maven mínimo configurado | **3.9.16** |
-| Maven distribuido mediante Wrapper | **3.9.16** |
+| Maven mínimo configurado | **3.10.0** |
+| Maven distribuido mediante Wrapper | **3.10.0** |
 | Maven Wrapper | **3.3.4** |
 | Codificación | UTF-8 |
 | Dependencias gestionadas | 40 |
 | Plugins gestionados | 21 |
 | Publicación | GitHub Packages |
-| Fecha de revisión del inventario | 26 de septiembre de 2026 |
+| Fecha de revisión del inventario | 25 de octubre de 2026 |
 
-La versión 1.0.15 actualiza H2, Compiler, Surefire, Failsafe, Spotless, SpotBugs, Build Helper, Versions, Checkstyle, Google Java Format y la acción `setup-java`. También actualiza la propiedad de Find Security Bugs, alinea la propiedad heredable `uuid.version` con Java UUID Generator e incorpora Dependabot para proponer cambios mediante pull requests.
+La versión 1.0.16 actualiza Hibernate, Jackson 2, Logback, Gson, Commons Codec, los controladores JDBC PostgreSQL y MariaDB 3.5, los cuatro helpers propios, Checkstyle, Spotless, SpotBugs, Versions y las acciones `setup-java` y `upload-artifact`. El Wrapper y el mínimo de Maven pasan a **3.10.0**; los consumidores deben actualizar su instalación o Wrapper antes de adoptar este parent.
+
+Se mantiene la numeración de mantenimiento utilizada en las versiones 1.0.x. Java continúa en 21, POI en 5.5.1 y Maven Site Plugin en 4.0.0-M16. Esta versión no migra a POI 6, MariaDB Connector/J 4 ni Jackson 3.
 
 Las tablas siguientes muestran las versiones configuradas en esta versión. El `pom.xml` es la fuente de referencia. Cada PR de actualización debe mantener sincronizado este inventario.
 
@@ -66,7 +68,7 @@ Declarar el parent en el POM:
 <parent>
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.15</version>
+    <version>1.0.16</version>
     <relativePath/>
 </parent>
 ```
@@ -99,33 +101,33 @@ Para instalar este parent en el repositorio Maven local:
 
 | Coordenadas Maven | Versión | Propiedad | Finalidad |
 |---|---|---|---|
-| `ch.qos.logback:logback-classic` | 1.6.4 | `logback.version` | Implementación de logging |
+| `ch.qos.logback:logback-classic` | 1.6.6 | `logback.version` | Implementación de logging |
 | `com.fasterxml.jackson.core:jackson-annotations` | 2.22 | `jackson.annotations.version` | Anotaciones JSON |
-| `com.fasterxml.jackson.core:jackson-core` | 2.22.3 | `jackson.version` | Procesamiento JSON |
-| `com.fasterxml.jackson.core:jackson-databind` | 2.22.3 | `jackson.version` | Conversión entre Java y JSON |
-| `com.fasterxml.jackson.datatype:jackson-datatype-jsr310` | 2.22.3 | `jackson.version` | Soporte JSON de fechas y horas |
+| `com.fasterxml.jackson.core:jackson-core` | 2.22.4 | `jackson.version` | Procesamiento JSON |
+| `com.fasterxml.jackson.core:jackson-databind` | 2.22.4 | `jackson.version` | Conversión entre Java y JSON |
+| `com.fasterxml.jackson.datatype:jackson-datatype-jsr310` | 2.22.4 | `jackson.version` | Soporte JSON de fechas y horas |
 | `com.sun.mail:jakarta.mail` | 2.0.2 | `jakarta.mail.version` | Servicios de correo |
 | `com.zaxxer:HikariCP` | 7.1.0 | `hikaricp.version` | Pool de conexiones JDBC |
 | `jakarta.persistence:jakarta.persistence-api` | 3.2.0 | `jakarta.persistence.version` | API de persistencia |
 | `jakarta.xml.bind:jakarta.xml.bind-api` | 4.0.5 | `jakarta.xml.bind.version` | API XML |
 | `org.glassfish.jaxb:jaxb-runtime` | 4.0.9 | `jaxb.runtime.version` | Implementación JAXB |
-| `local.jarios:email-helper` | 6.1.4 | `email-helper.version` | Helper propio de correo |
-| `local.jarios:encrypt-helper` | 7.0.5 | `encrypt-helper.version` | Helper propio de cifrado |
-| `local.jarios:properties-helper` | 6.0.5 | `property-helper.version` | Helper propio de propiedades |
-| `local.jarios:version-helper` | 6.1.4 | `version-helper.version` | Helper propio de versiones |
+| `local.jarios:email-helper` | 6.2.0 | `email-helper.version` | Helper propio de correo |
+| `local.jarios:encrypt-helper` | 7.1.0 | `encrypt-helper.version` | Helper propio de cifrado |
+| `local.jarios:properties-helper` | 6.1.0 | `property-helper.version` | Helper propio de propiedades |
+| `local.jarios:version-helper` | 6.2.0 | `version-helper.version` | Helper propio de versiones |
 | `org.assertj:assertj-core` | 3.27.7 | `assertj.version` | Aserciones para pruebas |
-| `org.hibernate.orm:hibernate-core` | 7.4.10.Final | `hibernate.version` | Persistencia ORM |
-| `org.hibernate.orm:hibernate-hikaricp` | 7.4.10.Final | `hibernate.version` | Integración Hibernate/HikariCP |
+| `org.hibernate.orm:hibernate-core` | 7.4.14.Final | `hibernate.version` | Persistencia ORM |
+| `org.hibernate.orm:hibernate-hikaricp` | 7.4.14.Final | `hibernate.version` | Integración Hibernate/HikariCP |
 | `org.jsoup:jsoup` | 1.23.2 | `jsoup.version` | Tratamiento HTML |
 | `org.apache.logging.log4j:log4j-core` | 2.26.1 | `log4j.version` | Implementación de logging |
 | `org.apache.logging.log4j:log4j-to-slf4j` | 2.26.1 | `log4j.version` | Puente Log4j hacia SLF4J |
-| `com.google.code.gson:gson` | 2.14.0 | `gson.version` | Serialización JSON |
+| `com.google.code.gson:gson` | 2.15.0 | `gson.version` | Serialización JSON |
 | `com.fasterxml.uuid:java-uuid-generator` | 5.2.0 | `java-uuid-generator.version` | Generación de UUID |
-| `org.postgresql:postgresql` | 42.7.13 | `postgresql.version` | Controlador JDBC PostgreSQL |
+| `org.postgresql:postgresql` | 42.7.14 | `postgresql.version` | Controlador JDBC PostgreSQL |
 | `com.h2database:h2` | 2.5.252 | `h2.version` | Base de datos H2 |
 | `org.apache.commons:commons-text` | 1.15.0 | `commons.text.version` | Utilidades de texto |
 | `org.apache.commons:commons-collections4` | 4.6.0 | `commons.collections.version` | Utilidades de colecciones |
-| `commons-codec:commons-codec` | 1.22.1 | `commons.codec.version` | Codificación y decodificación |
+| `commons-codec:commons-codec` | 1.23.0 | `commons.codec.version` | Codificación y decodificación |
 | `org.testcontainers:testcontainers` | 2.0.5 | `testcontainers.version` | Pruebas con contenedores |
 | `org.testcontainers:mariadb` | 1.21.4 | `testcontainers.mariadb.version` | Módulo MariaDB de Testcontainers 1.x |
 | `org.testcontainers:testcontainers-mariadb` | 2.0.5 | `testcontainers.version` | Módulo MariaDB de Testcontainers 2.x |
@@ -133,7 +135,7 @@ Para instalar este parent en el repositorio Maven local:
 | `jakarta.validation:jakarta.validation-api` | 3.1.1 | `jakarta.validation.version` | API de validación |
 | `jakarta.annotation:jakarta.annotation-api` | 3.0.0 | `jakarta.annotation.version` | Anotaciones comunes |
 | `org.junit.jupiter:junit-jupiter` | 6.1.3 | `junit.version` | Pruebas JUnit |
-| `org.mariadb.jdbc:mariadb-java-client` | 3.5.10 | `mariadb.version` | Controlador JDBC MariaDB |
+| `org.mariadb.jdbc:mariadb-java-client` | 3.5.11 | `mariadb.version` | Controlador JDBC MariaDB |
 | `org.apache.poi:poi` | 5.5.1 | `poi.version` | Documentos Office |
 | `org.apache.poi:poi-ooxml` | 5.5.1 | `poi.version` | Documentos Office OOXML |
 | `org.projectlombok:lombok` | 1.18.48 | `lombok.version` | Generación de código mediante anotaciones |
@@ -153,10 +155,10 @@ Para instalar este parent en el repositorio Maven local:
 
 | Artefacto | Versión | Repositorio |
 |---|---|---|
-| `local.jarios:email-helper` | 6.1.4 | [email_helper](https://github.com/contratacionmalaga/email_helper) |
-| `local.jarios:encrypt-helper` | 7.0.5 | [encrypt_helper](https://github.com/contratacionmalaga/encrypt_helper) |
-| `local.jarios:properties-helper` | 6.0.5 | [properties_helper](https://github.com/contratacionmalaga/properties_helper) |
-| `local.jarios:version-helper` | 6.1.4 | [version_helper](https://github.com/contratacionmalaga/version_helper) |
+| `local.jarios:email-helper` | 6.2.0 | [email_helper](https://github.com/contratacionmalaga/email_helper) |
+| `local.jarios:encrypt-helper` | 7.1.0 | [encrypt_helper](https://github.com/contratacionmalaga/encrypt_helper) |
+| `local.jarios:properties-helper` | 6.1.0 | [properties_helper](https://github.com/contratacionmalaga/properties_helper) |
+| `local.jarios:version-helper` | 6.2.0 | [version_helper](https://github.com/contratacionmalaga/version_helper) |
 
 Consultar sus repositorios para conocer las APIs y requisitos específicos. `properties-helper` utiliza la propiedad `property-helper.version`, en singular.
 
@@ -179,10 +181,10 @@ Consultar sus repositorios para conocer las APIs y requisitos específicos. `pro
 | `org.apache.maven.plugins:maven-site-plugin` | 4.0.0-M16 | Sitio Maven; versión milestone |
 | `org.apache.maven.plugins:maven-source-plugin` | 3.4.0 | Empaquetado de fuentes |
 | `org.apache.maven.plugins:maven-surefire-plugin` | 3.6.0 | Pruebas unitarias |
-| `com.diffplug.spotless:spotless-maven-plugin` | 3.10.3 | Formato |
-| `com.github.spotbugs:spotbugs-maven-plugin` | 4.10.4.1 | Análisis estático |
+| `com.diffplug.spotless:spotless-maven-plugin` | 3.10.4 | Formato |
+| `com.github.spotbugs:spotbugs-maven-plugin` | 4.10.5.0 | Análisis estático |
 | `org.codehaus.mojo:build-helper-maven-plugin` | 3.6.2 | Tareas auxiliares |
-| `org.codehaus.mojo:versions-maven-plugin` | 2.22.0 | Mantenimiento de versiones |
+| `org.codehaus.mojo:versions-maven-plugin` | 2.23.0 | Mantenimiento de versiones |
 | `org.owasp:dependency-check-maven` | 13.0.0 | Vulnerabilidades conocidas |
 | `org.jacoco:jacoco-maven-plugin` | 0.8.15 | Cobertura |
 
@@ -190,7 +192,7 @@ Consultar sus repositorios para conocer las APIs y requisitos específicos. `pro
 
 | Componente | Propiedad | Versión | Uso |
 |---|---|---|---|
-| Checkstyle | `checkstyle.version` | 14.1.0 | Dependencia del plugin Checkstyle |
+| Checkstyle | `checkstyle.version` | 14.3.0 | Dependencia del plugin Checkstyle |
 | Google Java Format | `google.java.format.version` | 1.36.1 | Formateador de Spotless |
 | Find Security Bugs | `findsecbugs.plugin.version` | 1.14.0 | Propiedad heredable; no activa el analizador en este POM |
 | UUID, propiedad conservada | `uuid.version` | 5.2.0 | Propiedad heredable sin referencias internas |
@@ -198,6 +200,8 @@ Consultar sus repositorios para conocer las APIs y requisitos específicos. `pro
 La dependencia Java UUID Generator utiliza `java-uuid-generator.version=5.2.0`. Se conservan las propiedades sin referencias internas porque los consumidores podrían utilizarlas por herencia. Dependabot no garantiza actualizar propiedades sin asociación a coordenadas Maven ni versiones incrustadas en configuraciones específicas de plugins.
 
 Maven Site permanece en **4.0.0-M16**, la versión milestone ya utilizada por el proyecto; no existe una actualización estable de esa línea verificada en esta revisión. No se ha sustituido por la línea 3.x ni migrado Maven a una versión preliminar de la línea 4.
+
+Google Java Format permanece en **1.36.1**: la versión 1.37.0 falla con Spotless 3.10.4 al llamar a `JavaFormatterOptions.Style.valueOf(String)`, eliminado en el formateador nuevo. El fallo se reprodujo con código Java y JDK 21; véase el [problema upstream #3126](https://github.com/diffplug/spotless/issues/3126). La actualización queda pendiente de una versión estable compatible de Spotless.
 
 JaCoCo no declara ejecuciones de instrumentación o informes. Failsafe no vincula metas al ciclo de vida. Los consumidores deben activar estas funciones cuando las necesiten.
 
@@ -207,7 +211,7 @@ JaCoCo no declara ejecuciones de instrumentación o informes. Failsafe no vincul
 |---|---|
 | `project.build.sourceEncoding` | `UTF-8` |
 | `maven.compiler.release` | `21` |
-| `maven.minimum.version` | `3.9.16` |
+| `maven.minimum.version` | `3.10.0` |
 | `checkstyle.config.location` | `google_checks.xml` |
 | `checkstyle.console.output` | `true` |
 | `checkstyle.fails.on.error` | `true` |
@@ -307,9 +311,9 @@ Los workflows utilizan `ubuntu-latest` y Eclipse Temurin 21.
 | Acción | Versión |
 |---|---|
 | `actions/checkout` | v7.0.1 |
-| `actions/setup-java` | v6.0.1 |
+| `actions/setup-java` | v6.1.0 |
 | `actions/cache` | v6.1.0 |
-| `actions/upload-artifact` | v7.0.1 |
+| `actions/upload-artifact` | v7.0.2 |
 
 Credenciales:
 
@@ -368,7 +372,7 @@ Para investigar un consumidor:
 
 ## Publicación de una versión
 
-La versión se prepara localmente y solo queda disponible para consumidores remotos después de publicarse. El workflow exige un tag `v<versión>` que coincida con el POM; para esta versión corresponde **`v1.0.15`**.
+La versión se prepara localmente y solo queda disponible para consumidores remotos después de publicarse. El workflow exige un tag `v<versión>` que coincida con el POM; para esta versión corresponde **`v1.0.16`**.
 
 El workflow obtiene el código del tag, comprueba la versión, ejecuta `clean verify`, publica con `deploy` y crea la GitHub Release si no existe. Adjunta los JAR de `target` cuando los encuentra; este proyecto publica principalmente un POM.
 
@@ -393,17 +397,18 @@ No se deben sobrescribir releases ya publicadas para distribuir cambios: prepara
 | Fallo de Testcontainers | Docker y coherencia entre núcleo y módulos |
 | Fallo de publicación | Coincidencia tag/POM, destino y permisos de escritura |
 
-## Verificación de la versión 1.0.15
+## Verificación de la versión 1.0.16
 
-Validaciones realizadas con JDK 21.0.11 y Maven 3.9.16:
+Validaciones realizadas con JDK 21.0.11 y Maven 3.10.0:
 
-- `clean verify` con el perfil `quality` en el parent: correcto.
-- Consumidor temporal del POM actualizado: compilación con Compiler 3.16.0 y dos pruebas JDBC sobre H2 2.5.252, una con Surefire 3.6.0 y otra con Failsafe 3.6.0, sin fallos.
-- Formato y análisis del consumidor temporal: Spotless/Google Java Format, Checkstyle y SpotBugs completados correctamente.
-- Configuración de Dependabot validada contra el esquema JSON de SchemaStore; archivos YAML analizados sin errores de sintaxis.
+- `clean install` con el perfil `quality` en el parent: correcto; POM instalado en el repositorio Maven local.
+- Consumidor temporal del POM actualizado: compilación con Compiler 3.16.0, dos pruebas unitarias de JSON/Codec con Surefire 3.6.0 y una prueba de integración JDBC con Failsafe 3.6.0, sin fallos.
+- La prueba de integración consulta H2 2.5.252 mediante HikariCP, carga los drivers PostgreSQL y MariaDB y comprueba la versión de Hibernate. Las dependencias incluyen los cuatro helpers publicados en GitHub Packages.
+- Formato y análisis del consumidor temporal: Spotless 3.10.4/Google Java Format 1.36.1, Checkstyle 14.3.0 y SpotBugs 4.10.5.0 completados correctamente, sin infracciones ni hallazgos.
+- Incompatibilidad de Google Java Format 1.37.0 con Spotless reproducida y evitada conservando 1.36.1.
 - Inventario del README contrastado automáticamente con las 40 dependencias y los 21 plugins del POM.
 
-Estas comprobaciones no incluyen la ejecución remota de GitHub Actions, la publicación de paquetes, un análisis NVD ni la batería completa de los proyectos consumidores.
+Estas comprobaciones locales no incluyen un análisis NVD ni la batería completa de los proyectos consumidores. Los resultados remotos de CI, Quality y publicación deben consultarse en las ejecuciones de GitHub Actions correspondientes al commit o tag de la release.
 
 ## Mantenimiento y licencia
 
