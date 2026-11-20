@@ -2,26 +2,26 @@
 
 Configuración Maven centralizada para los proyectos Java de `local.jarios`: gestión de dependencias, herramientas de construcción, controles de calidad y publicación de artefactos.
 
-**Artefacto Maven:** `local.jarios:jarios-parent:1.0.16`
+**Artefacto Maven:** `local.jarios:jarios-parent:1.0.17`
 **Repositorio:** [contratacionmalaga/jarios-parent](https://github.com/contratacionmalaga/jarios-parent)
 
 ## Información de la versión
 
 | Característica | Configuración |
 |---|---|
-| Versión del parent | **1.0.16** |
+| Versión del parent | **1.0.17** |
 | Tipo de artefacto | `pom` |
 | Java de referencia y compilación | **21** |
 | Maven mínimo configurado | **3.10.0** |
-| Maven distribuido mediante Wrapper | **3.10.0** |
+| Maven distribuido mediante Wrapper | **3.10.1** |
 | Maven Wrapper | **3.3.4** |
 | Codificación | UTF-8 |
 | Dependencias gestionadas | 40 |
 | Plugins gestionados | 21 |
 | Publicación | GitHub Packages |
-| Fecha de revisión del inventario | 25 de octubre de 2026 |
+| Fecha de revisión del inventario | 20 de noviembre de 2026 |
 
-La versión 1.0.16 actualiza Hibernate, Jackson 2, Logback, Gson, Commons Codec, los controladores JDBC PostgreSQL y MariaDB 3.5, los cuatro helpers propios, Checkstyle, Spotless, SpotBugs, Versions y las acciones `setup-java` y `upload-artifact`. El Wrapper y el mínimo de Maven pasan a **3.10.0**; los consumidores deben actualizar su instalación o Wrapper antes de adoptar este parent.
+La versión 1.0.17 actualiza Hibernate a **7.4.17.Final**, Surefire y Failsafe a **3.6.1**, y JaCoCo a **0.8.16**. El Wrapper usa Maven **3.10.1** y el mínimo para los consumidores sigue siendo **3.10.0**.
 
 Se mantiene la numeración de mantenimiento utilizada en las versiones 1.0.x. Java continúa en 21, POI en 5.5.1 y Maven Site Plugin en 4.0.0-M16. Esta versión no migra a POI 6, MariaDB Connector/J 4 ni Jackson 3.
 
@@ -68,7 +68,7 @@ Declarar el parent en el POM:
 <parent>
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.16</version>
+    <version>1.0.17</version>
     <relativePath/>
 </parent>
 ```
@@ -116,8 +116,8 @@ Para instalar este parent en el repositorio Maven local:
 | `local.jarios:properties-helper` | 6.1.0 | `property-helper.version` | Helper propio de propiedades |
 | `local.jarios:version-helper` | 6.2.0 | `version-helper.version` | Helper propio de versiones |
 | `org.assertj:assertj-core` | 3.27.7 | `assertj.version` | Aserciones para pruebas |
-| `org.hibernate.orm:hibernate-core` | 7.4.14.Final | `hibernate.version` | Persistencia ORM |
-| `org.hibernate.orm:hibernate-hikaricp` | 7.4.14.Final | `hibernate.version` | Integración Hibernate/HikariCP |
+| `org.hibernate.orm:hibernate-core` | 7.4.17.Final | `hibernate.version` | Persistencia ORM |
+| `org.hibernate.orm:hibernate-hikaricp` | 7.4.17.Final | `hibernate.version` | Integración Hibernate/HikariCP |
 | `org.jsoup:jsoup` | 1.23.2 | `jsoup.version` | Tratamiento HTML |
 | `org.apache.logging.log4j:log4j-core` | 2.26.1 | `log4j.version` | Implementación de logging |
 | `org.apache.logging.log4j:log4j-to-slf4j` | 2.26.1 | `log4j.version` | Puente Log4j hacia SLF4J |
@@ -173,20 +173,20 @@ Consultar sus repositorios para conocer las APIs y requisitos específicos. `pro
 | `org.apache.maven.plugins:maven-compiler-plugin` | 3.16.0 | Compilación Java |
 | `org.apache.maven.plugins:maven-dependency-plugin` | 3.11.0 | Inspección de dependencias |
 | `org.apache.maven.plugins:maven-enforcer-plugin` | 3.6.3 | Requisitos Java/Maven |
-| `org.apache.maven.plugins:maven-failsafe-plugin` | 3.6.0 | Pruebas de integración |
+| `org.apache.maven.plugins:maven-failsafe-plugin` | 3.6.1 | Pruebas de integración |
 | `org.apache.maven.plugins:maven-jar-plugin` | 3.5.1 | Empaquetado JAR |
 | `org.apache.maven.plugins:maven-javadoc-plugin` | 3.12.0 | Documentación Java |
 | `org.apache.maven.plugins:maven-release-plugin` | 3.3.1 | Operaciones de release |
 | `org.apache.maven.plugins:maven-shade-plugin` | 3.6.2 | Empaquetado con dependencias |
 | `org.apache.maven.plugins:maven-site-plugin` | 4.0.0-M16 | Sitio Maven; versión milestone |
 | `org.apache.maven.plugins:maven-source-plugin` | 3.4.0 | Empaquetado de fuentes |
-| `org.apache.maven.plugins:maven-surefire-plugin` | 3.6.0 | Pruebas unitarias |
+| `org.apache.maven.plugins:maven-surefire-plugin` | 3.6.1 | Pruebas unitarias |
 | `com.diffplug.spotless:spotless-maven-plugin` | 3.10.4 | Formato |
 | `com.github.spotbugs:spotbugs-maven-plugin` | 4.10.5.0 | Análisis estático |
 | `org.codehaus.mojo:build-helper-maven-plugin` | 3.6.2 | Tareas auxiliares |
 | `org.codehaus.mojo:versions-maven-plugin` | 2.23.0 | Mantenimiento de versiones |
 | `org.owasp:dependency-check-maven` | 13.0.0 | Vulnerabilidades conocidas |
-| `org.jacoco:jacoco-maven-plugin` | 0.8.15 | Cobertura |
+| `org.jacoco:jacoco-maven-plugin` | 0.8.16 | Cobertura |
 
 ### Herramientas y propiedades auxiliares
 
@@ -201,7 +201,7 @@ La dependencia Java UUID Generator utiliza `java-uuid-generator.version=5.2.0`. 
 
 Maven Site permanece en **4.0.0-M16**, la versión milestone ya utilizada por el proyecto; no existe una actualización estable de esa línea verificada en esta revisión. No se ha sustituido por la línea 3.x ni migrado Maven a una versión preliminar de la línea 4.
 
-Google Java Format permanece en **1.36.1**: la versión 1.37.0 falla con Spotless 3.10.4 al llamar a `JavaFormatterOptions.Style.valueOf(String)`, eliminado en el formateador nuevo. El fallo se reprodujo con código Java y JDK 21; véase el [problema upstream #3126](https://github.com/diffplug/spotless/issues/3126). La actualización queda pendiente de una versión estable compatible de Spotless.
+Google Java Format permanece en **1.36.1**: la versión 1.37.0 falla con Spotless 3.10.4 al llamar a `JavaFormatterOptions.Style.valueOf(String)`, eliminado en ese formateador. El fallo se reprodujo con código Java y JDK 21; véase el [problema upstream #3126](https://github.com/diffplug/spotless/issues/3126). A fecha de 20 de noviembre de 2026 están publicados Spotless 3.11.0 y Google Java Format 2.0.0, que restaura esa API. Su adopción requiere revisar los cambios de formato y las nuevas limpiezas de código; véanse las [notas de Google Java Format 2.0.0](https://github.com/google/google-java-format/releases/tag/v2.0.0).
 
 JaCoCo no declara ejecuciones de instrumentación o informes. Failsafe no vincula metas al ciclo de vida. Los consumidores deben activar estas funciones cuando las necesiten.
 
@@ -372,7 +372,7 @@ Para investigar un consumidor:
 
 ## Publicación de una versión
 
-La versión se prepara localmente y solo queda disponible para consumidores remotos después de publicarse. El workflow exige un tag `v<versión>` que coincida con el POM; para esta versión corresponde **`v1.0.16`**.
+La versión se prepara localmente y solo queda disponible para consumidores remotos después de publicarse. El workflow exige un tag `v<versión>` que coincida con el POM; para esta versión corresponde **`v1.0.17`**.
 
 El workflow obtiene el código del tag, comprueba la versión, ejecuta `clean verify`, publica con `deploy` y crea la GitHub Release si no existe. Adjunta los JAR de `target` cuando los encuentra; este proyecto publica principalmente un POM.
 
@@ -397,7 +397,16 @@ No se deben sobrescribir releases ya publicadas para distribuir cambios: prepara
 | Fallo de Testcontainers | Docker y coherencia entre núcleo y módulos |
 | Fallo de publicación | Coincidencia tag/POM, destino y permisos de escritura |
 
-## Verificación de la versión 1.0.16
+## Verificación de la versión 1.0.17
+
+Comprobaciones locales realizadas el 20 de noviembre de 2026 con JDK 21.0.12.1:
+
+- El parent pasó `-Pquality verify` con Maven 3.10.1 a través del Wrapper.
+- Un consumidor temporal que hereda 1.0.17 pasó `clean verify` con el mismo Wrapper. Ejecutó dos pruebas unitarias de JSON y logging y una prueba de integración de persistencia con Hibernate, HikariCP y H2. JaCoCo instrumentó el código y generó el informe de cobertura.
+
+Las pruebas son una comprobación básica de compatibilidad y no incluyen las baterías de los consumidores reales, TestNG, bases de datos externas, paquetes privados ni un análisis NVD. Surefire/Failsafe 3.6.1 requiere revisar los consumidores con `suiteXmlFiles`: esa configuración pasa de ignorarse a provocar un error.
+
+## Verificación previa de la versión 1.0.16
 
 Validaciones realizadas con JDK 21.0.11 y Maven 3.10.0:
 
