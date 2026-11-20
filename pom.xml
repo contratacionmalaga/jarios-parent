@@ -6,7 +6,7 @@
 
     <groupId>local.jarios</groupId>
     <artifactId>jarios-parent</artifactId>
-    <version>1.0.16</version>
+    <version>1.0.17</version>
     <packaging>pom</packaging>
 
     <name>jarios-parent</name>
@@ -35,7 +35,7 @@
         <maven.minimum.version>3.10.0</maven.minimum.version>
 
         <assertj.version>3.27.7</assertj.version>
-        <hibernate.version>7.4.14.Final</hibernate.version>
+        <hibernate.version>7.4.17.Final</hibernate.version>
         <hikaricp.version>7.1.0</hikaricp.version>
         <jackson.version>2.22.4</jackson.version>
         <jackson.annotations.version>2.22</jackson.annotations.version>
@@ -70,7 +70,7 @@
         <checkstyle.console.output>true</checkstyle.console.output>
         <checkstyle.fails.on.error>true</checkstyle.fails.on.error>
         <checkstyle.max.violations>0</checkstyle.max.violations>
-        <jacoco.plugin.version>0.8.15</jacoco.plugin.version>
+        <jacoco.plugin.version>0.8.16</jacoco.plugin.version>
         <!-- Google Java Format 1.37.0 is incompatible with Spotless 3.10.4 (upstream #3126). -->
         <google.java.format.version>1.36.1</google.java.format.version>
         <javadoc.fail.on.error>true</javadoc.fail.on.error>
@@ -94,14 +94,14 @@
         <maven.compiler.plugin.version>3.16.0</maven.compiler.plugin.version>
         <maven.dependency.plugin.version>3.11.0</maven.dependency.plugin.version>
         <maven.enforcer.plugin.version>3.6.3</maven.enforcer.plugin.version>
-        <maven.failsafe.plugin.version>3.6.0</maven.failsafe.plugin.version>
+        <maven.failsafe.plugin.version>3.6.1</maven.failsafe.plugin.version>
         <maven.jar.plugin.version>3.5.1</maven.jar.plugin.version>
         <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
         <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
         <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
         <maven.site.plugin.version>4.0.0-M16</maven.site.plugin.version>
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
-        <maven.surefire.plugin.version>3.6.0</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.6.1</maven.surefire.plugin.version>
         <spotbugs.maven.plugin.version>4.10.5.0</spotbugs.maven.plugin.version>
         <spotless.maven.plugin.version>3.10.4</spotless.maven.plugin.version>
         <versions.maven.plugin.version>2.23.0</versions.maven.plugin.version>
